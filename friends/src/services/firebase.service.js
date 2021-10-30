@@ -22,6 +22,7 @@ const provider = new GoogleAuthProvider();
 
 export const signIn = () => {
     signInWithPopup(auth, provider).then(res => {
-        console.log(res);
+        localStorage.setItem('token', `Bearer ${res.user.accessToken}`)
+        // console.log(res.user.accessToken);
     })
 }
